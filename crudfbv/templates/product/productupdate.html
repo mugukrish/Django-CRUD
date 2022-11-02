@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Prodect</title>
+</head>
+<body>
+
+<form action="{% url 'updateproducturlname' object.id %}" method="post">{% csrf_token %}
+    Product Name<input type="text" value={{object.productname}} name="updateproductname">
+    Product Price<input type="number" value= {{object.price}} name="updateprice">
+
+    <input type="submit" value="Update Product">
+</form>
+
+</body>
+</html>

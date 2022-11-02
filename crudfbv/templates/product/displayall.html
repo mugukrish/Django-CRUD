@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Products</title>
+</head>
+<body>
+
+<ol>
+    {%for obj in object%}
+    <li>
+        {{obj.productname}} - {{obj.price}}
+        <form action="{% url 'updateproducturlname' obj.id %}" method="post">{% csrf_token%}
+            <input type="submit" value="Update", name="update">
+        </form>
+
+        <form action="{% url 'deleteproducturlname' obj.id %}" method="post">{% csrf_token%}
+            <input type="submit" value="Delete" name="delete">
+        </form>
+    </li>
+    <br>
+    <br>
+
+    {% endfor %}
+</ol>
+
+<form method="post">{% csrf_token%}
+    <input type="submit" value="Add" name="add">
+</form>
+
+</body>
+</html>
